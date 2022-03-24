@@ -1,9 +1,11 @@
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+
 import { useEffect,useState } from 'react';
 
 const Load = () => {
     function simulateNetworkRequest() {
-        return new Promise((resolve) => setTimeout(resolve, 4000));
+        let data = " 1 2 3 4";
+        return new Promise((resolve) => setTimeout(resolve(data), 4000));
       }
       
       function LoadingButton() {
@@ -11,7 +13,7 @@ const Load = () => {
       
         useEffect(() => {
           if (isLoading) {
-            simulateNetworkRequest().then(() => {
+            simulateNetworkRequest().then((data) => {
               setLoading(false);
             });
           }
